@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forever My Jasmine ❤️</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Neon Glow Title */
+.neon {
+  font-size: 48px;
+  margin-top: 60px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #ff1177,
+    0 0 10px #ff1177,
+    0 0 20px #ff1177,
+    0 0 40px #ff1177,
+    0 0 80px #ff1177;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  from { opacity: 1; }
+  to { opacity: 0.85; }
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #ff1177;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:hover {
+  background: #ff0055;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+#lockScreen {
+  margin-top: 150px;
+}
+
+#mainContent {
+  display: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff1177;
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Fireworks */
+.firework {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: gold;
+  border-radius: 50%;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(15); opacity: 0; }
+}
+
+/* Final Love Text */
+#finalLove {
+  display: none;
+  font-size: 45px;
+  margin-top: 40px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #ff1177,
+    0 0 15px #ff1177,
+    0 0 30px #ff1177,
+    0 0 60px #ff1177;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen">
+  <h2>Enter Our Secret Password ❤️</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <br><br>
+  <button onclick="checkPassword()">Unlock 🔐</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent">
+
+  <div class="neon">
+    Jasmine My Wifey ji ❤️ <br>
+    From Your Milanuuu 💋
+  </div>
+
+  <button onclick="showSurprise()">Open My Heart 💌</button>
+
+  <div id="message" style="display:none; max-width:800px; margin:auto; line-height:1.7; font-size:20px;">
+    <p>
+      From January 10th 💋 our first kiss…  
+      my world changed forever.  
+      Since then it’s only been <b>My tera… My tera…</b> ❤️
+    </p>
+
+    <p>
+      Thank you for coming into my life, my love.  
+      I am always with you and forever with you.  
+      I remember every happy moment from the first time I met you  
+      to the last time I met you today.  
+      Hugs, kisses, arguments, misunderstandings…  
+      but my love never fades.  
+      You are my only one. 💖  
+      I love you so much, Wifeyyy Ji.
+    </p>
+
+    <button onclick="openProposal()">Special Question 💍</button>
+  </div>
+
+  <div id="finalLove">
+    I Love You Forever My Wifey ji ❤️💋
+  </div>
+
+</div>
+
+<!-- Proposal Popup -->
+<div id="proposal" class="popup">
+  <h2>Will you stay mine forever? 💍</h2>
+  <button onclick="celebrate()">YES ❤️</button>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" src="Mai-Tera-Mai-Tera-Ringtone-1.mp3" preload="auto" loop></audio>
+
+<script>
+let varOcg = "MilanuuuFinalWithMusic"; // _define-ocg_ ultimate romantic version
+
+function checkPassword() {
+  const pass = document.getElementById("passwordInput").value;
+  if (pass === "Ourjrny@1524") {
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("music").play();
+  } else {
+    alert("Wrong password 😢");
+  }
+}
+
+function showSurprise() {
+  document.getElementById("message").style.display = "block";
+}
+
+function openProposal() {
+  document.getElementById("proposal").style.display = "block";
+}
+
+function celebrate() {
+  document.getElementById("proposal").style.display = "none";
+
+  for(let i=0; i<30; i++){
+    const fire = document.createElement("div");
+    fire.classList.add("firework");
+    fire.style.top = Math.random()*100+"vh";
+    fire.style.left = Math.random()*100+"vw";
+    document.body.appendChild(fire);
+    setTimeout(()=>fire.remove(),1000);
+  }
+
+  document.getElementById("finalLove").style.display = "block";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
